@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script src="https://kit.fontawesome.com/f4240584e7.js" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .footer{
+      background: #353a40;       /*footerBackgroundColor*/
+      color: #888f97;            /*headings*/
+      font-family: 'Open Sans', sans-serif;
+      height: 220px;
+      position: relative;
+    }
+    .footer .footer-logo img{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .footer .footer-content{
+      height: 165px;
+      display: flex;
+    }
+    .footer .footer-content .footer-section{
+      flex: 1;
+      padding: 20px 0;
+    }
+    .footer .footer-content .about{
+      padding: 20px 0;
+    }
+    .testt{
+      margin: auto;
+      width: 225px;
+    }
+    .footer .contact-form .socials span{
+      padding: 10px 0;
+      color: #dadee7;      /*outerCircle*/
+    }
+    .footer .contact-form .socials span:hover{
+      color: white;       /*outerCircle*/
+    }
+    .footer .contact-form a{
+      text-decoration: none;
+    }
+    .contact-form .socials span .fa-stack-1x{
+      color: #353a40;     /*brandLogo*/
+    }
+    .footer .footer-content .about ul{
+      list-style-type:none;
+      padding: 5px 0;
+    }
+    .footer .footer-content .about a{
+      color: #dadee7;             /*linksColor*/
+      text-decoration: none;
+      padding: 5px 0;
+    }
+    .footer .footer-content .about a:hover{
+      color: white;               /*linksColor*/
+    }
+    .footer .footer-content .about a li{
+      padding: 3px 0;
+    }
+    .footer .footer-content .about a i{
+      color: #353a40;             /*to Hide The Icons in Help*/
+    }
+    .footer .footer-content .about a:hover i{
+      color: #1975ff;               /*to display the icons only when hover*/
+    }
+
+    /* THE BOTTOM FOOTER */
+    .footer .footer-bottom{
+      background: #212429;            /*bottom footer color*/
+      color: #868f96;                 /*bottm footer text color*/
+      height: 26px;
+      width: 100%;
+      text-align: center;
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+    }
+    @media screen and (max-width: 800px){
+      .footer .footer-content .about{
+        padding: 10px 0;
+        height: 180px;
+      }
+      .footer .footer-content .about a i{
+        color: #dadee7;
+      }
+      .footer .footer-logo{
+        display: none;
+      }
+    }
+    @media screen and (max-width: 580px){
+      .footer .footer-content{
+        display: inline;
+      }
+      .footer{
+        height: 260px;
+      }
+      .footer .footer-content .about{
+        padding: 10px 0;
+        height: 150px;
+      }
+      .footer .footer-content .contact-form{
+        padding: 3px;
+      }
+      .footer .footer-bottom{
+        height: 23px;
+      }
+      .footer .footer-bottom p{
+        font-size: 14px;
+      }
+      .footer h2{
+         font-size: 23px;
+      }
+      .footer ul a{
+        font-size: 12px;
+      }
+      .footer .socials a{
+        font-size: 12px;
+      }
+      .footer .testt{
+        width: 170px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Footer  -->
+  <div class="footer">
+    <div class="footer-content">
+      <div class="footer-section about">
+        <div class="testt">
+          <h2 style="padding: 0 22px; margin: 0;">HELP</h2>
+          <ul>
+            <a href="#" ><li><i class="far fa-credit-card fa-sm fa-fw"></i> Payments</li></a>
+            <a href="#"><li><i class="fas fa-truck fa-sm fa-fw"></i> Shipping</li></a>
+            <a href="#"><li><i class="far fa-times-circle fa-sm fa-fw"></i> Cancellation and returns</li></a>
+            <a href="#"><li><i class="far fa-file-alt fa-sm fa-fw"></i> Terms and conditions</li></a>
+          </ul>
+        </div>        
+      </div>
+      <div class="footer-section footer-logo">
+        <img src="https://drive.google.com/uc?id=1daFh6zU1F8UJhGMFY6DTO3oKBy1EAVd_" width="250px">
+      </div>
+      <div class="footer-section contact-form">
+        <center>
+          <h2 style="margin: 0;">CONTACT US</h2>
+          <div class="socials">
+            <a href="#">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-instagram fa-stack-1x"></i>
+              </span>
+            </a>    
+            <a href="#">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-facebook-f fa-stack-1x"></i>
+              </span> 
+            </a>    
+            <a href="#">          
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-linkedin-in fa-stack-1x"></i>
+              </span>
+            </a>        
+            <a href="#">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-twitter fa-stack-1x"></i>
+              </span>
+            </a>
+          </div>
+        </center>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p style="margin: 0;">&copy; 2020 TOYCARS | Goa, India</p>
+    </div>
+  </div>
+</body>
+</html>
+
+

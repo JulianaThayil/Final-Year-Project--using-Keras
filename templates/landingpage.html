@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Toycars</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400');
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+    /*** HEADER ***/
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      width: 100%;
+      height: 100vh;
+      background-image: url(https://images.pexels.com/photos/2691481/pexels-photo-2691481.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    .heading1 .line{
+      padding: 0 35px;
+    }
+    .heading1 .line .line1{
+      width: 22vw;
+      height: 6px;
+      background-color: #d9ddde;
+    }
+    .title {
+      width: 100%;
+      position: absolute;
+      font-size: 50px;
+      color: #FFF;
+      font-family: 'Source Sans Pro', sans-serif;
+      letter-spacing: 1px;
+      text-align: center;
+      top: 50%;
+      margin-top: -50px;
+      z-index:0; 
+    }
+    .title_mini{
+        font-size: 25px;
+        font-weight: 200;
+      }
+    /** MATCHBOX **/
+    .coll{
+      padding: 0 40px;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 3vw; 
+      font-weight: bold;
+    }
+    .matchbox{
+      padding: 0 100px 0 30px;
+    }
+    .matchbox3{
+      padding: 0 30px 0 100px;
+    }
+    .matchbox1{
+      padding: 20px 20px 20px 20px;
+      
+    }
+    .matchbox1 a{
+        font-size: 1rem; 
+    }
+    .matchbox1 p{
+        font-size: 1.7vw; 
+    }
+    .matchbox1 h2{
+        font-size: 2.5vw;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-weight: bold;
+    }
+    .matchbox2{
+      display: flex;
+      padding: 30px;
+      box-shadow: 5px 5px 20px -6px rgba(0,0,0,0.25);
+    }
+    .pict img{
+      width: 35vw;
+      height: 22vw;
+    }
+    .info{
+      width: 100%;
+    }
+    .middle1{
+      padding: 0 20px;
+      height: 80%;
+    }
+    .box{
+      margin:auto;
+      width: 180px;
+    }
+    .box1 {
+      position:relative;
+      vertical-align: middle;
+      display: inline-block;
+      height: 1.9rem;
+      width: 100%;
+      line-height: 1.5rem;
+      text-align: center;
+      transition: 0.5s;
+      padding: 0 20px;
+      -webkit-transition:0.2s;
+      text-decoration: none;
+    }
+    .box1:hover {
+      border: 2px solid black ;
+      color: black;      
+      text-decoration: none;
+    }
+    .green{
+      border: 1px solid #0b7;
+      color:#0b7;
+    }
+    .dark_red{
+      border: 1px solid #d10e00;
+      color: #d10e00;
+    }
+    .red{
+      border: 1px solid red;
+      color: red;
+    }
+    @media screen and (max-width: 800px){
+      .heading1 .line .line1{
+        width: 30vw;
+      }
+      .coll{
+        font-size: 4vw;
+      }
+      .matchbox1 .box{
+        width: 90%;
+      }
+      .matchbox1 h2{
+        font-size: 3vw;
+      }
+      .matchbox1 p{
+        font-size: 2vw;
+      }
+      .matchbox1 .pict img{
+        width: 35vw;
+        height: 25vw;
+      }
+      .matchbox1 .box1{
+        height: 4vh;
+        width: 80%;
+        line-height: 4vh;
+        padding: 0 0;
+      }
+      .matchbox1 a{
+        font-size: 2vw; 
+      }
+      .matchbox{
+        padding: 0 30px 0 5px;
+      }
+      .matchbox3{
+        padding: 0 5px 0 30px;
+      }
+    }
+    @media screen and (max-width: 580px){
+      header{
+        width: 100%;
+        height: 60vw;
+        background-size: 110%;
+        background-position: initial;
+      }
+      .title{
+        margin: auto;
+        padding: 70px 0 0 0;
+        position: static;    
+        font-size: 20px;
+        margin-top: 0px;
+        width: 300px;
+        height: 100px;
+      }
+      .heading1 .line .line1{
+        width: 44vw;
+      }
+      .title_mini{
+        font-size: 15px;
+      }
+      .matchbox1{
+        padding: 5px 5px 10px 5px; 
+      }
+      .matchbox{
+        padding: 0 10px 0 0;
+      }
+      .matchbox3{
+        padding: 0 0 0 10px;
+      }
+      .matchbox2{
+        padding: 10px;
+      }
+      .coll{
+        font-size: 6vw;
+      }
+      .matchbox1 p{
+        font-size: 3vw;
+      }
+      .middle1{
+        padding: 0 10px;
+        height: 80%;
+      }
+      .matchbox1 p{
+        font-size: 3vw;
+      }
+      .matchbox1 .box1{
+        height: 5vw;
+        width: 80%;
+        line-height: 5vw;
+      }
+      .matchbox1 a{
+        font-size: 3vw; 
+      }
+      .space{
+        height: 60px;
+      }
+    }
+    @media screen and (max-width: 400px){
+      header{
+        width: 100%;
+        height: 70vw;
+        background-size: 130%;
+      }
+      .title{
+        padding: 50px 0 0 0;
+        width: 300px;
+      } 
+      .heading1 .line .line1{
+      width: 44vw;
+      height: 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+  {% extends 'layout.html' %}
+  {% block body %}
+  <div class="space"></div>
+  <!-- Header  -->
+  <header>
+    <div class="title">Find your favorite toy cars
+      <h4 class="title_mini">and use our bargain chatbot to haggle a discount</h4>
+    </div>
+  </header>
+  <br/>
+  <!-- Container  -->
+  <div class="container1">
+    <div class="heading1">
+      <h1 class="coll">Latest Collection</h1>
+      <div class="line">
+        <div class="line1"></div>
+      </div>
+    </div>
+    <div class="collections">
+      <div class="matchbox">
+        <div class="matchbox1">
+          <div class="matchbox2">
+            <div class="pict">
+              <img width="100%" height="100%" src="https://images.pexels.com/photos/1648419/pexels-photo-1648419.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"> 
+              </img>
+            </div>
+            <div class="info">
+              <div class="middle1">
+                <h2>MatchBox</h2>
+                <p>Matchbox is a brand of die-cast toy cars that is now owned by Mattel, inc. Originally the toys were sold in boxes that resembled those boxes that matches were sold and hence it got its name.</p>
+                <div class="box">
+                  <a href="/Matchbox" class="box1 green">View Collection</a>
+                </div>
+                </div>
+            </div>
+          </div>          
+        </div>
+      </div>
+
+      <div class="matchbox3">
+        <div class="matchbox1">
+          <div class="matchbox2">
+            <div class="pict">
+              <img width="100%" height="100%" src="https://images.unsplash.com/photo-1585679949781-cc4ba4884ef1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1494&q=80"> 
+              </img>
+            </div>
+            <div class="info">
+              <div class="middle1">
+                <h2>DUX</h2>
+                <p>Dux is a plastic and metal toys brand from Germany. Also known as AutoDux.</p>
+                <div class="box">
+                  <a href="/DUX" class="box1 red">View Collection</a>
+                </div>
+              </div>
+            </div>
+          </div>          
+        </div>
+      </div>
+      <div class="matchbox">
+        <div class="matchbox1">
+          <div class="matchbox2">
+            <div class="pict">
+              <img width="100%" height="100%" src="https://images.unsplash.com/photo-1563122209-172468cd05bd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"> 
+              </img>
+            </div>
+            <div class="info">
+              <div class="middle1">
+                <h2>HotWheels</h2>
+                <p>HotWheels is a famous die-cast toy brand by Mattel. They have acquired licences by many automobiles manufactures to produce scale models of their cars. HotWheels are a popular choice of collectors.</p>
+                <div class="box">
+                  <a href="/Matchbox" class="box1 dark_red">View Collection</a>
+                </div>
+                </div>
+            </div>
+          </div>          
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  <br/>
+  {% endblock %}
+</body>
+</html>

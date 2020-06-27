@@ -1,0 +1,53 @@
+{"intents": [
+        {"tag": "greeting",
+         "patterns": ["Hi", "How are you", "Howdy", "Hey there", "Ssup", "Sup", "Whatcha up to", "What up", "What's up", "hiii", "Hey mate", "How ya doing", "Hey how is it going", "Hii", "Is anyone there?", "Hello", "Good day", "Whats up","hiiii"],
+         "responses": ["Hello!", "How may i assist you today", "Hey your favorite assistant here, how can I help? ", "Hi there, how can I help?"],
+         "context_set": ""
+        },
+        {"tag": "goodbye",
+         "patterns": ["cya", "See you later","Catch you later", "Tata bye bye", "See you soon", "I'm off", "Have a nice day", "Talk to you later", "I've got to get going", "I must be going now", "Goodbye", "bye", "I am Leaving", "Have a Good day"],
+         "responses": ["Sad to see you go :(", "Talk to you later", "Sad so see you leave so soon", "Looking forward to our next meet :)", "Goodbye!"],
+         "context_set": ""
+        },
+        {"tag": "age",
+         "patterns": ["how old",  "what is your age", "how old are you", "age?"],
+         "responses": ["I am a month old!", "1 month young!"],
+         "context_set": ""
+        },
+        {"tag": "name",
+         "patterns": ["what is your name", "what should I call you", "Can i know your name ?", "whats your name?", "May i k ur name"],
+         "responses": ["You can call me Botto .", "I'm Botto the Bot!", "botto is my name bargaining is my game ", "I'm Botto aka The Bargain Bot"],
+         "context_set": ""
+        },
+        {"tag": "shop",
+         "patterns": ["what do you sell", "What have you got", "wat r u sellin", "Id like to buy something"],
+         "responses": ["As you see there are various items","We sell clothes and accessories"],
+         "context_set": ""
+        },
+        {"tag": "hours",
+         "patterns": ["when are you open", "what are your hours", "Till what time are you on duty", "How many hours a day do ya'll run", "hours of operation"],
+         "responses": ["Our head office is open 7am-4pm Monday-Friday!"],
+         "context_set": ""
+        },
+       {"tag": "delivery",
+         "patterns": ["do you'll deliver to ", "In which states do you'll deliver", "How many states do you'll deliver to", "where do you deliver"],
+         "responses": ["yes","we deliver to all states around India"],
+         "context_set": ""
+        },
+        {"tag": "payment",
+         "patterns": ["How can i pay", "Do you accept credit card", "How can the payment be made", "In which method can the payment be made possible", "what payment options do you offer"],
+         "responses": ["We provide a range of payment options such as credit card, debit card and Cash on delivery"],
+         "context_set": ""
+        },
+        {"tag": "COD",
+         "patterns": ["do you offer COD ", "Cash on delivery"],
+         "responses": ["Yes. We do have cash on delivery option  on certain items"],
+         "context_set": ""
+        },
+        {"tag": "return",
+         "patterns": ["return period", "Incase of damaged goods", "Number of days provided for renurning of goods", "number of days provided to return","return policy"],
+         "responses": ["7 days return policy"],
+         "context_set": ""
+        }
+   ]
+}

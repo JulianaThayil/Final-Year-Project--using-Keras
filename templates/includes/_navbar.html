@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
+        <link rel="icon" href="{{ url_for('static', filename='image/other/logo_icon.png') }}" type="image/x-icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400');
+            .show {
+            display: block;
+            }
+            
+            nav .btn {
+            flex: 1 1 auto;
+            padding-right: 20px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;
+            /* text-shadow: 0px 0px 10px rgba(0,0,0,0.2);*/
+            box-shadow: 0 0 30px #eee;
+            }
+            nav .btn-3 {
+            background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(101deg, #78e4ff, thistle);
+            }
+            .btn:hover {
+            background-position: right center;
+            /* change the direction of the change here */
+            }
+            nav .input{
+            border-radius: 0px;
+            padding: 20px; 
+            }
+            nav {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 18px;
+            box-shadow: 0px -6px 10px rgba(255, 255, 255, 1), 0px 4px 15px rgba(0, 0, 0, 0.2);
+            }
+            nav .logo {
+            font-size: 30px;
+            padding: 10px 25px;
+            color: black;
+            text-decoration: none;
+            float: left;
+            }
+            nav .desktop {
+            display: flex;
+            }
+            nav .desktop a {
+            padding-right: 20px;
+            color: black;
+            }
+            nav .all_prod{
+            padding-right: 20px;
+            color: black;
+            }
+            nav .desktop a:hover, .all_prod:hover{
+            color: #0f9bff;
+            text-decoration: none;
+            }
+            nav .serr{
+            width: 25vw;
+            }
+            @media screen and (max-width: 991px) {
+                nav .serr{
+                    width: 90vw;
+                }
+            }
+            @media screen and (max-width: 800px) {
+                nav .desktop {
+                    display: none;
+                }
+                nav .all_prod{
+                    padding-right: 0;
+                }
+                nav .logo{
+                    margin: 0;
+                    padding-right: 10px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom  fixed-top">
+            <a class="navbar-brand logo" href="/">LOGO</a>
+            <a  class="all_prod" href="/allproducts">All Products</a>
+            <div class="desktop">
+                <div class="desktop">
+
+                    <a href="/Matchbox">MATCHBOX</a>
+                    <a href="/DUX">DUX</a>
+                    <a href="/HotWheels">HOTWHEELS</a>
+                </div>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <div class="input-group p-0 serr">
+                    <form action="/search" method="get" class="w-100 m-0">
+                        <div class="input-group-append rounded-left">
+                            <input type="text" class="form-control input" autocomplete="off"
+                            name="q" placeholder="Search.">
+                            <button class="btn-3 btn " type="submit">Search</button>
+                        </div>
+                    </form>
+                </div>
+                <ul class="navbar-nav ml-auto">
+                    {% if session.logged_in %}
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">
+                            <span class=""></span> Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/profile?user={{session.uid}}" class="nav-link">
+                            <span class=""></span>Account
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/out" class="nav-link">
+                            <span class=""></span> Logout
+                        </a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item"><a href="/" class="nav-link"><span class=""></span> Home</a></li>
+                    <li class="nav-item"><a href="/register" class="nav-link"><span class=""></span> Signup</a></li>
+                    <li class="nav-item"><a href="/login" class="nav-link"><span class=""></span> Login</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+    </body>
+</html>

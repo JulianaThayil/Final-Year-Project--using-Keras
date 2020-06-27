@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Toycars | {{values}}</title>
+    <link rel="icon" href="{{ url_for('static', filename='image/other/logo_icon.png') }}" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+        *{
+            padding: 0;
+            margin: 0;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .cont_main{
+            padding:0  3vw;
+            height: 500px;
+        }
+        .cont_sect{
+            width: 100%;
+        }
+        .cont_contents{
+            width: 29vw;
+            height: 23vw;
+            float: left;
+            padding: 10px 10px 20px 10px;
+        }
+        .cont_data{
+            border: 1px solid #c8cccf;
+            border-radius: 0px;
+            overflow: hidden;
+        }
+        .cont_img{
+            height: 15vw;
+        }
+        .cont_detail{
+            padding: 15px 0 15px 10px;
+        }
+        .cont_data a{
+            text-decoration: none;
+        }
+        .cont_data a:hover{
+            text-decoration: none;
+        }
+        .cont_data:hover{
+            box-shadow: 7px 10px 15px 5px #c4c4c4;
+        }
+        .cont_data h2{
+            color: #0d76ff;
+        }
+        .cont_data h3{
+            color: black;
+        }
+        .cont_header h1{
+            padding: 10px 20px;
+        }
+        .cont_style{
+            font-size: 1.4vw;
+            font-weight: bold;
+            margin: 0;
+        }
+        @media screen and (max-width: 900px){
+            .cont_contents{
+                padding: 10px 10px 20px 10px;
+            }
+            .cont_detail{
+                padding: 10px 0 10px 10px;
+            }
+        }
+        @media screen and (max-width: 580px){
+            .cont_contents{
+                width: 45vw;
+                height: 40vw;
+                padding: 10px 10px 20px 10px;
+            }
+            .cont_img{
+                height: 25vw;
+            }
+            .cont_style{
+                font-size: 3vw;
+            }
+        }
+        @media screen and (max-width: 450px){
+            .cont_contents{
+                width: 45vw;
+                height: 44vw;
+                padding: 10px 10px 20px 10px;
+            }
+            .cont_img{
+                height: 25vw;
+            }
+            .cont_style{
+                font-size: 3vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    {% include 'includes/_navbar.html' %}
+    {% block body %}
+    <div class="cont_main">
+        <div class="cont_main1">
+            <div class="cont_header">
+                <br>
+                <br>
+                <br>
+                <br>
+                <h1>{{values}}</h1>
+            </div>
+            {% for product in toys %}
+            <div class="cont_sect">
+                <div class="cont_contents">
+                    <div class="cont_data">
+                        <a href="/{{product.brand}}?view={{product.id}}">
+                            <div class="cont_img" style="background: url('static/image/product/{{product.brand}}/{{product.picture}}'); background-repeat:no-repeat; background-position: 50% 50%; background-size: cover; width:100% ">
+                            </div>
+                            <div class="cont_detail">
+                                <h2 class="cont_style">{{ product.pName}}</h2>
+                                <h3 class="cont_style">Rs {{product.price}}</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>            
+    {% endblock %}
+</body>
+</html>
+

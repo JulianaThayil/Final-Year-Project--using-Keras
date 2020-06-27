@@ -1,0 +1,454 @@
+{% block body %}
+
+
+<head>
+    <title>ToyCars | All Products</title>
+    <link rel="icon" href="{{ url_for('static', filename='image/other/logo_icon.png') }}" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style >
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.05rem;
+        }
+        .main1{
+            display: flex;
+        }
+        .box{
+        }
+        .left{
+            width: 180px;
+            height: 100vh;
+        }
+        .filters{
+            position: fixed;
+            width: 180px;
+            background-color: white;
+        }
+        .mid{
+            width: 2px;
+            height: 100vh;
+            background-color: #e0e0e0;
+            position: fixed;
+            margin-left: 180px;
+        }
+
+        .right1{
+            flex: 1;
+            height: 100vh;
+        }
+        .right{
+            padding: 20px 0 0 20px;
+        }
+
+        .left1{
+            padding: 20px;
+        }
+        .line{
+            height: 1px;
+            width: 100%;
+            background-color: #e0e0e0;
+        }
+
+        .pad{
+            padding: 10px 5px;
+        }
+        .pad h3{
+            font-size: 1.2rem;   
+        }
+        .pad1{
+            padding: 5px;
+        }
+        input{
+            cursor: pointer;
+        }
+        .filters .colour{
+            height: 130px;
+        }
+        .filters_heading{
+            font-size: 1.8rem;
+            margin: 0;
+            font-weight: bold;
+        }
+        .filters_subheading{
+            margin: 0;
+            font-weight: bold;
+        }
+
+        /*CheckBox*/
+        .container11 {
+            display: block;
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 2px;
+            cursor: pointer;
+            font-size: 18px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        .container11 input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+        .checkmark11 {
+            position: absolute;
+            top: 3px;
+            left: 0;
+            margin: 0;
+            height: 18px;
+            width: 18px;
+            background-color: #eee;
+        }
+        .container11:hover input ~ .checkmark11 {
+            background-color: #ccc;
+        }
+        .container11 input:checked ~ .checkmark11 {
+            background-color: #308aff;
+        }
+        .checkmark11:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+        .container11 input:checked ~ .checkmark11:after {
+            display: block;
+        }
+        .container11 .checkmark11:after {
+            left: 5px;
+            top: 0px;
+            width: 8px;
+            height: 14px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+        /*For the radio buttons*/
+        .container22 {
+            display: block;
+            position: relative;
+            float: left;
+
+            padding-left: 30px;
+            padding-bottom: 15px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 17px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        .container22 input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+        .checkmark22 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 16px;
+            width: 16px;
+            background-color: #eee;
+            border-radius: 50%;
+        }
+        .container22 input:checked ~ .checkmark22 {
+            height: 23px;
+            width: 23px; 
+        }
+        .checkmark22:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+        .container22 input:checked ~ .checkmark22:after {
+            display: block;
+        }
+        .container22 .checkmark22:after {
+            left: -1px;
+            top: -1px;
+            width: 24px;
+            height: 24px;
+            border: solid #308aff;
+            border-width: 2px;
+            border-radius: 50%;
+        }
+        .container22 .checkmark2{
+            left: 0px;
+            top: 0px;
+            width: 18px;
+            height: 18px;
+            border: solid #ccc;
+            border-width: 2px;
+            border-radius: 50%;
+        }
+
+        /*Product Cards*/
+        .cont_contents{
+            
+            width: 26vw;
+            height: 300px;
+            float: left;
+            padding: 20px 15px 40px 15px;
+        }
+        .cont_data{
+            border: 1px solid #c8cccf;
+            border-radius: 0px;
+            overflow: hidden;
+        }
+        img{
+            width: 100%;
+        }
+        .cont_detail{
+            padding: 10px 0 20px 20px;
+        }
+        .cont_data a{
+            text-decoration: none;
+        }
+        .cont_data:hover{
+            box-shadow: 7px 10px 15px 5px #c4c4c4;
+        }
+        .cont_data h2{
+            color: #0d76ff;
+        }
+        .cont_data h3{
+            color: black;
+        }
+        .cont_style{
+            margin: 0;
+            font-size: 1.3vw;
+            font-weight: bold;
+        }
+        .cont_style:hover{
+            text-decoration: none;
+        }
+        .cont_img{
+            height: 200px;
+        }
+
+
+        @media screen and (max-width: 988px){
+            .cont_contents{
+                width: 35vw;
+                height: 240px;
+                padding: 10px 15px 20px 15px;
+            }
+            .cont_style{
+                font-size: 1.7vw;
+            }
+            .cont_img{
+                height: 150px;
+            }
+        }
+        @media screen and (max-width: 730px){
+            .cont_contents{
+                width: 32vw;
+                height: 200px;
+            }
+            .cont_style{
+                font-size: 1.7vw;
+            }
+            .cont_img{
+                height: 120px;
+            }
+            .right{
+                padding: 20px 0 0 10px;
+            }
+        }
+        @media screen and (max-width: 580px){
+            .mid{
+                margin-left: 150px;
+            }
+            .left{
+                width: 150px;
+            }
+            .filters{
+                width: 150px;
+            }
+            .cont_style{
+                font-size: 2vw;
+            }
+            .cont_detail{
+                padding: 10px 0 10px 10px;
+            }
+            .filters .colour{
+                height: 150px;
+            }
+            .filters_heading{
+                font-size: 1.3rem;
+            }
+            .filters_subheading{
+                font-size: 1rem;
+            }
+            .pad{
+                padding: 5px 3px;
+            }
+        }
+        @media screen and (max-width: 500px){
+            .cont_contents{
+                width: 60vw;
+                height: 200px;
+            }
+            .cont_style{
+                font-size: 3vw;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    {% include 'includes/_navbar.html' %}
+    
+    <div class="main1">
+
+        <div class="filters">
+            <div class="left1">
+                <br>
+                <br>
+                <br>
+                <h1 class="filters_heading">Filters</h1>
+                <div class="line"></div>
+
+                <div class="colour pad">
+                    <h3 class="filters_subheading">Colours</h3>
+                    <div class="pad1">
+                        <label class="container22">
+                            <input type="radio" id="nocol" name="colour" value="nocol" checked="checked">
+                            <span class="checkmark22 checkmark2" style="background-color: white;"></span>
+                        </label>
+                        <label class="container22">
+                            <input type="radio" id="red" name="colour" value="red">
+                            <span class="checkmark22" style="background-color: red;"></span>
+                        </label>
+                        <label class="container22">
+                            <input type="radio" id="yellow" name="colour" value="yellow">
+                            <span class="checkmark22" style="background-color: yellow;"></span>
+                        </label>
+                        <label class="container22">
+                            <input type="radio" id="blue" name="colour" value="blue">
+                            <span class="checkmark22" style="background-color: blue;"></span>
+                        </label>
+                        <label class="container22">
+                            <input type="radio" id="green" name="colour" value="green">
+                            <span class="checkmark22" style="background-color: green;"></span>
+                        </label>
+                        <label class="container22">
+                            <input type="radio" id="orange" name="colour" value="orange">
+                            <span class="checkmark22" style="background-color: orange;"></span>
+                        </label>
+                        <label class="container22">
+                            <input type="radio" id="purple" name="colour" value="purple">
+                            <span class="checkmark22" style="background-color: purple;"></span>
+                        </label>
+                        <label class="container22">
+                            <input type="radio" id="black" name="colour" value="black">
+                            <span class="checkmark22" style="background-color: black;"></span>
+                        </label>
+                        <label class="container22">
+                            <input type="radio" id="white" name="colour" value="white">
+                            <span class="checkmark22 checkmark2" style="background-color: white;"></span>
+                        </label>
+                        <label class="container22">
+                            <input type="radio" id="pink" name="colour" value="pink">
+                            <span class="checkmark22" style="background-color: pink;"></span>
+                        </label>
+                        <label class="container22">
+                            <input type="radio" id="grey" name="colour" value="grey">
+                            <span class="checkmark22" style="background-color: grey;"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="line"></div>
+                <div class="type pad">
+                    <h3 class="filters_subheading">Type</h3>
+                    <div class="pad1">
+                        <label class="container11">Car
+                            <input type="checkbox" id="car" name="car" value="car">
+                            <span class="checkmark11"></span>
+                        </label>
+                        <label class="container11">Bus
+                            <input type="checkbox" id="bus" name="bus" value="bus">
+                            <span class="checkmark11"></span>
+                        </label>
+                        <label class="container11">Truck
+                            <input type="checkbox" id="truck" name="truck" value="truck">
+                            <span class="checkmark11"></span>
+                        </label>
+                        <label class="container11">Van
+                            <input type="checkbox" id="van" name="van" value="van">
+                            <span class="checkmark11"></span>
+                        </label>
+                        <label class="container11">Bike
+                            <input type="checkbox" id="bike" name="bike" value="bike">
+                            <span class="checkmark11"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="line"></div>
+                <div class="category pad">
+                    <h3 class="filters_subheading">Category</h3>
+                    <div class="pad1">
+                        <label class="container11">Sports
+                            <input type="checkbox" id="sports" name="sports" value="sports">
+                            <span class="checkmark11"></span>
+                        </label>
+                        <label class="container11">Vintage
+                            <input type="checkbox" id="vintage" name="vintage" value="vintage">
+                            <span class="checkmark11"></span>
+                        </label>
+                        <label class="container11">Luxury
+                            <input type="checkbox" id="luxury" name="luxury" value="luxury">
+                            <span class="checkmark11"></span>
+                        </label>
+                        <label class="container11">Farming
+                            <input type="checkbox" id="farming" name="farming" value="farming">
+                            <span class="checkmark11"></span>
+                        </label>
+                    </div>   
+                </div>
+            </div>
+        </div>
+
+        <div class="left box">hhhhhhhhhhhhhhhhhhh</div>
+        <div class="mid box">
+            
+        </div>
+        <div class="right1 box">
+            
+            <div class="right">
+                <br>
+                <br>
+                <br>
+                {% for product in allproducts %}
+                <div class="cont_contents">
+                    <div class="cont_data">
+                        <a class="cont_style" href="/{{product.brand}}?view={{product.id}}">
+                            <div class="cont_img" style="background: url('static/image/product/{{product.brand}}/{{product.picture}}'); background-repeat:no-repeat; background-position: 50% 50%; background-size: cover; width:100% ">
+                            </div>
+                            <div class="cont_detail">
+                                <h2 class="cont_style">{{product.pName}}</h2>
+                                <h3 class="cont_style">Rs {{product.price}}</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    
+
+</body>
+
+
+{% endblock %}

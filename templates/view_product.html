@@ -1,0 +1,506 @@
+<head>
+    {% for r in details %}
+    <title>Toycars | {{r.pName}}</title>
+    {% endfor %}
+    <link rel="icon" href="{{ url_for('static', filename='image/other/logo_icon.png') }}" type="image/x-icon">
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        nav .logo{
+            margin-bottom: 10px;
+        }
+        a:hover{
+            text-decoration: none;
+        }
+
+        .container{
+            margin: 0;
+        }
+        .col-sm-6 h2{
+            font-size: 2.5rem;
+        }
+        .col-sm-6 h3{
+            font-size: 2rem;
+        }
+        .col-sm-6 p{
+            font-size: 1.7rem;
+        }
+        .testt *{
+            font-size: 1.4rem;
+        }
+        .testt h2{
+            font-size: 2.5rem !important;
+        }
+        .contact_form h2{
+            font-size: 2.5rem !important;
+        }
+        .socials span{
+            font-size: 2rem;
+        }
+        /*Button*/
+        .button_section{
+            display: flex;
+        }
+        .button {
+          left: 0;
+          right: 0;
+          text-align: center;
+          height: 40px;
+          width: 160px;
+          flex: 1;
+          -webkit-transform: translateY(-50%);
+                  transform: translateY(-50%);
+        }
+        .button_inner {
+          border-radius: 2px;
+          position: absolute;
+          width: 150px;
+          height: 35px;
+          left: 0;
+          right: 0;
+          margin: auto;
+          
+          font-weight: 500;
+          font-size: 19px;
+          cursor: pointer;
+          border: 2px solid #0f9bff;                              /*colour*/
+          color: #0f9bff;                                         /*colour*/
+          text-align: center;
+          -webkit-transition: all .3s,box-shadow .2s,-webkit-transform .2s .2s;
+          transition: all .3s,box-shadow .2s,-webkit-transform .2s .2s;
+          transition: all .3s,box-shadow .2s,transform .2s .2s;
+          transition: all .3s,box-shadow .2s,transform .2s .2s,-webkit-transform .2s .2s;
+        }
+        .button_inner span.t {
+          position: relative;
+          top: 0px;
+          opacity: 1;
+          left: -19px;                                /*to adjust the center*/
+          -webkit-transition: left .4s .1s;
+          transition: left .4s .1s;
+        }
+        .button_inner i.l {
+          position: relative;
+          left: 0px;
+          top: 20px;
+          color: white;
+          font-size: 25px;
+          opacity: 0;
+          -webkit-transition: left .3s 0s,top .3s 0s,opacity .3s 0s;
+          transition: left .3s 0s,top .3s 0s,opacity .3s 0s;
+        }
+        .button_inner:hover {
+          color: white;
+          background: #0f9bff;                                   /*colour*/
+          box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.2);
+        }
+        .button_inner:hover span.t {
+          left: 4px;
+          -webkit-transition: left .4s;
+          transition: left .4s;
+        }
+        .button_inner:hover i.l {
+          top: 2px;
+          left: 0px;
+          opacity: 1;
+          -webkit-transition: left .3s 0s,top .3s .1s,opacity .3s .1s;
+          transition: left .3s 0s,top .3s .1s,opacity .3s .1s;
+        }
+
+
+        /*image slider*/
+
+        .item .thumb {
+            width: 25%;
+            cursor: pointer;
+            float: left;
+        }
+
+        .item .thumb img {
+            width: 100%;
+            height: 100px;
+            margin: 2px;
+        }
+
+        .item img {
+            width: 100%;
+        }
+
+        .breadcrum {
+            display: flex;
+            font-size: 1.7em;
+        }
+
+        button.button {
+            border-radius: 100rem;
+            padding: 1rem;
+            font-family: 'Avenir Next';
+            font-size: 1rem;
+            padding: .5rem 3rem;
+            box-shadow: 0 0 6px 0 rgba(157, 96, 212, 0.5);
+            border: solid 3px transparent;
+            background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(101deg, #78e4ff, #ff48fa);
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+            box-shadow: 2px 1000px 1px #fff inset;
+        }
+
+        button.button:hover {
+            box-shadow: none;
+            color: white;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+
+        @media screen and (max-width: 580px) {
+            .breadcrum {
+                display: none;
+            }
+            .testt *{
+            font-size: 1.3rem;
+        }
+        }
+
+        p {
+            font-size: 1.2em;
+        }
+
+        .description {
+            padding: 5%;
+            background-color: #e3f3ff;                  /*colour*/
+        }
+
+
+        #chatbox {
+            margin-left: auto;
+            margin-right: auto;
+            width: 35%;
+            height: 80%;
+            margin-top: 5%;
+            padding-left: 1%;
+            padding-right: 1%;
+            padding-bottom: 2%;
+            margin-bottom: 4%;
+            right: 0px;
+            bottom: 0px;
+            background: white;
+            border-radius: 5px 5px 0px 0px;
+            position: fixed;
+            overflow-y: scroll;
+            z-index: 10;
+            border-left: solid 1px rgb(233, 232, 232);
+            box-shadow: 0px -6px 10px rgba(255, 255, 255, 1),
+                0px 4px 15px rgba(231, 179, 179, 0.15);
+            background: #ffffff;
+        }
+
+        #userInput {
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+            width: 35%;
+            right: 0px;
+            bottom: 0px;
+            background: white;
+            border-radius: 0px 0px 5px 5px;
+            position: fixed;
+            z-index: 20;
+            border: solid 1px rgb(207, 207, 207);
+            box-shadow: 0px -6px 10px rgba(255, 255, 255, 1),
+                0px 4px 15px rgba(0, 0, 0, 0.15);
+
+        }
+
+        #textInput {
+            border: none;
+            width: 87%;
+            border-top: thin 1px grey;
+            padding: 1%;
+
+            font-family: monospace;
+            bottom: 0px;
+            font-size: 17px;
+            position: relative;
+            z-index: 1;
+        }
+
+        #buttonInput {
+            padding: 3px;
+            font-family: monospace;
+            font-size: 17px;
+            position: relative;
+            z-index: 1;
+            position: relative;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: thistle;
+            color: white;
+            cursor: pointer;
+            outline: none;
+        }
+
+        #buttonInput:focus {
+            outline: none;
+        }
+
+        .userText {
+            color: rgb(0, 0, 0);
+            padding-top: 5px;
+            font-family: monospace;
+            font-size: 17px;
+            text-align: right;
+            line-height: 30px;
+            position: relative;
+        }
+
+        .userText span {
+            background-color: #cecece;
+            padding: 10px;
+            border-radius: 2px;
+            position: relative;
+        }
+
+        .botText {
+            color: white;
+            font-family: monospace;
+            text-align: left;
+            line-height: 30px;
+            position: relative;
+            padding-top: 5px;
+            font-size:15px;
+        }
+
+        .botText span {
+            background-color: #96c4de;
+            padding: 10px;
+            left: 8px;
+            position: relative;
+        }
+
+        .head {
+            width: 30%;
+            height: 55px;
+            background: #96c4de;
+            border-radius: 5px 5px 0px 0px;
+            position: fixed;
+            right: 0px;
+            bottom: 0px;
+            padding: 10px;
+            z-index: 1;
+        }
+
+        .close {
+            cursor: pointer;
+            float: right;
+            color: #CCD6D6;
+            background-color: white;
+            border: none;
+            height: 10%;
+        }
+
+        .close:hover {
+            color: gray;
+            border-radius: 50%;
+            padding: 5%;
+
+        }
+        .close:focus{
+            outline: none;
+        }
+      
+        #accept.btn, #reject.btn{
+            padding: 8px 25px;
+            font-size: 15px;
+            color: white;
+        }
+
+
+    </style>
+</head>
+{% extends 'layout.html' %}
+{% block body %}
+{% for r in details %}
+<div style="height: 90px;"></div>
+
+<div class="container" >
+    <div class="breadcrum">
+        <a href="/"> Toycars </a> > <a href="/{{r.brand}}"> {{r.brand}} </a> > 
+        <div> {{r.pName}}</div>
+    </div>
+    <br />
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div id="carousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="static/image/product/{{r.brand}}/{{r.picture}}">
+                    </div>
+                    <div class="item">
+                        <img src="static/image/product/{{r.brand}}/{{r.picture2}}">
+                    </div>
+                    <div class="item">
+                        <img src="static/image/product/{{r.brand}}/{{r.picture3}}">
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix">
+                <div id="thumbcarousel" class="carousel slide" data-interval="false">
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div data-target="#carousel" data-slide-to="0" class="thumb"><img
+                                    src="static/image/product/{{r.brand}}/{{r.picture}}"></div>
+                            <div data-target="#carousel" data-slide-to="1" class="thumb"><img
+                                    src="static/image/product/{{r.brand}}/{{r.picture2}}"></div>
+                            <div data-target="#carousel" data-slide-to="2" class="thumb"><img
+                                    src="static/image/product/{{r.brand}}/{{r.picture3}}"></div>
+
+                        </div><!-- /item -->
+
+                    </div><!-- /carousel-inner -->
+
+                </div> <!-- /thumbcarousel -->
+            </div><!-- /clearfix -->
+        </div> <!-- /col-sm-6 -->
+        <div class="col-sm-6">
+            <h2>{{r.pName}}</h2>
+            <h3>Rs {{r.price}}</h3>
+            <p> Manufacturer: {{r.brand}}</p>
+            <p> Model: {{r.model}}</p>
+            <p>Color: {{r.color}} </p>
+            <br />
+            <br>
+            <div class="button_section">
+                <div>
+                    <div class='button'>
+                        <a href="#">
+                            <label for='button'>
+                                <div class='button_inner q'>
+                                    <i class="l fas fa-shopping-cart" style="font-size:1.9rem"></i>
+                                    <span class='t'>Cart</span>
+                                </div>
+                            </label>
+                        </a>        
+                    </div>
+                </div>
+                <div>
+                    <div class='button' style="margin-left: 20px;">
+                        <a href="#">
+                            <label for='button'>
+                                <div class='button_inner q'>
+                                    <i class="l fas fa-shopping-cart" style="font-size:1.9rem"></i>
+                                    <span class='t'>Buy Now</span>
+                                </div>
+                            </label>
+                        </a>        
+                    </div>
+                </div>
+            </div>
+        </div> <!-- /col-sm-6 -->
+    </div> <!-- /row -->
+    <br>
+    <div class=" description col-sm-6">
+        <h3> Description: </h3>
+        <p> {{r.description}}</p>
+    </div>
+    <br>
+    
+</div> <!-- /container -->
+
+{% endfor %}
+<button class="chat-head head">
+    <h2>Bargain a Discount!</h2>
+</button>
+<script>
+    $(document).ready(function () {
+        var par = $('.chatcontainer');
+        $(par).hide();
+        $(".chat-head").click(function () {
+            $(".chatcontainer").slideToggle('fast');
+        });
+    });
+</script>
+<div class="chatcontainer" >
+
+    <div id="chatbox">
+        <div style="position: fixed; background-color: white;"> <button  class="chat-head close "> <p style="font-size: 20px;"> x</p> </button></div>
+        <br /><br />
+
+        <p class="botText"><span>Hey! How many of these are you willing to buy today ?</span></p>
+    </div>
+    <div id="userInput">
+
+        <input id="textInput" type="text" name="msg" placeholder="Message">
+        <button id="buttonInput"><i style="font-size:23px" class="fa fa-paper-plane"></i> </button>
+        <script>
+            function getBotResponse() {
+                var rawText = $("#textInput").val();
+                var userHtml = '<p class="userText"><span>' + rawText + '</span></p>';
+                $("#textInput").val("");
+                $("#chatbox").append(userHtml);
+
+                $.get("/get", {
+                    msg: rawText
+                }).done(function (data) {
+                    var botHtml = '<p class="botText"><span>' + data + '</span></p>';
+                    $("#chatbox").append(botHtml);
+                    var element = document.getElementById("chatbox");
+                    element.scrollTop = element.scrollHeight;
+
+
+                });
+            }
+            function getAccepted() {
+                var rawText = $("#accept").val();
+                var userHtml = '<p class="userText"><span>' + rawText + '</span></p>';
+                $("#chatbox").append(userHtml);
+
+                $.get("/get", {
+                    msg: rawText
+                }).done(function (data) {
+                    var botHtml = '<p class="botText"><span>' + data + '</span></p>';
+                    $("#chatbox").append(botHtml);
+                    var element = document.getElementById("chatbox");
+                    element.scrollTop = element.scrollHeight;
+
+
+                });
+            }
+            function getRejected() {
+                var rawText = $("#reject").val();
+                var userHtml = '<p class="userText"><span>' + rawText + '</span></p>';
+                $("#chatbox").append(userHtml);
+
+                $.get("/get", {
+                    msg: rawText
+                }).done(function (data) {
+                    var botHtml = '<p class="botText"><span>' + data + '</span></p>';
+                    $("#chatbox").append(botHtml);
+                    var element = document.getElementById("chatbox");
+                    element.scrollTop = element.scrollHeight;
+
+
+                });
+            }
+            $("#textInput").keypress(function (e) {
+                if (e.which == 13) {
+                    getBotResponse();
+                }
+            });
+            $("#buttonInput").click(function () {
+                getBotResponse();
+            });
+
+        </script>
+        </script>
+    </div>
+
+
+
+    {% endblock %}
